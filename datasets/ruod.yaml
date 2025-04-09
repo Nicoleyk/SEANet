@@ -1,0 +1,5 @@
+train: /mnt/yk/dataset/RUOD/labels/train.txt
+val: /mnt/yk/dataset/RUOD/labels/val.txt
+test: /mnt/yk/dataset/RUOD/labels/val.txt
+nc: 10
+names: ['holothurian','echinus','scallop','starfish','fish','corals','diver','cuttlefish','turtle','jellyfish']
