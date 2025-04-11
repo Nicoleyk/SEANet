@@ -3,24 +3,39 @@ Underwater object detection is significantly hindered by low-contrast visual con
 
 ![Detection Results](datasets/show.jpg)
 
-## Dependencies and Installation
+## Install
 
-- Ubuntu 20.04+
-- Python 3.8+
-- NVIDIA GPU + CUDA 11.8
-- PyTorch 2.0+
+- Clone this repository
+```bash
+git clone https://github.com/Nicoleyk/SEANet.git
+cd SEANet
+```
+- Create a conda virtual environment and activate it
+```bash
+conda create -n seanet python=3.8 +
+conda activate seanet
+```
 
-To install dependencies:
+- Install required dependencies
 ```bash
 pip install -r requirements.txt
 ```
----
-
+- Data Preparation
+Download underwater object detection datasets such as [RUOD](https://pan.baidu.com/s/1LXjDZVntddsdlE5-lcS0-w?pwd=5pbd)
+It is recommended to extract the datasets outside the project directory. The suggested folder structure is as follows:
+```bash
+data 
+├── images 
+│   ├── train 
+│   └── val 
+├── labels 
+│   ├── train 
+|   ├── val 
+|   ├── train.txt 
+└── └── val.txt
+```
 ## Test
-
-1. [Download the RUOD dataset](https://pan.baidu.com/s/1LXjDZVntddsdlE5-lcS0-w?pwd=5pbd)
-2. [Download the pretrained model weights](https://pan.baidu.com/s/1FOB0TxJ0h5EDfhdKGDM9AQ?pwd=nyp6) 
-
+  [Download the pretrained model weights](#)  
 
 ```bash
 python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights final/weights/best.pt
