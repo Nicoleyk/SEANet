@@ -3,7 +3,7 @@ Underwater object detection is significantly hindered by low-contrast visual con
 
 ![Detection Results](datasets/show.jpg)
 
-## Install
+## 🚀 Installation
 
 - Clone this repository
 ```bash
@@ -12,16 +12,15 @@ cd SEANet
 ```
 - Create a conda virtual environment and activate it
 ```bash
-conda create -n seanet python=3.8 +
+conda create -n seanet python=3.8+
 conda activate seanet
 ```
-
 - Install required dependencies
 ```bash
 pip install -r requirements.txt
 ```
-- Data Preparation
-Download underwater object detection datasets such as [RUOD](https://pan.baidu.com/s/1LXjDZVntddsdlE5-lcS0-w?pwd=5pbd)
+## 📂 Data Preparation
+Download underwater object detection datasets such as [RUOD](https://pan.baidu.com/s/165NIEGmyHIVeCy47WIF8LA?pwd=w35g)
 It is recommended to extract the datasets outside the project directory. The suggested folder structure is as follows:
 ```bash
 data 
@@ -34,9 +33,24 @@ data
 |   ├── train.txt 
 └── └── val.txt
 ```
-## Test
-  [Download the pretrained model weights](#)  
-
+## 🧪 Evaluation
+- [Download the pretrained model weights](https://pan.baidu.com/s/1pDGsseIr2M4b0sYFWN8ALg?pwd=9abj) and place it in:
 ```bash
-python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights final/weights/best.pt
+runs/train/final/
+```
+![Detection Results](datasets/robustness_show_00.png)
+- Evaluate on the dataset
+```bash
+python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
+```
+## 🔧 Robustness Evaluation
+We also provide robustness subsets of RUOD(Gaussian Noise and Motion Blur at 5 severity levels),you can download them from [RUOD]( https://pan.baidu.com/s/165NIEGmyHIVeCy47WIF8LA?pwd=w35g )
+
+1. Evaluate on Gaussian Noise
+```bash
+python val.py --data datasets/ruod-gussian.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
+```
+2. Evaluate on Motion Blur
+```bash
+python val.py --data datasets/ruod-motionblur.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
 ```
