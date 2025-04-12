@@ -1,0 +1,5 @@
+train: /mnt/yk/dataset/RUOD/labels/train.txt
+val: your motionblur val.txt
+test: your motionblur val.txt
+nc: 10
+names: ['holothurian','echinus','scallop','starfish','fish','corals','diver','cuttlefish','turtle','jellyfish']
