@@ -38,7 +38,6 @@ data
 ```bash
 runs/train/final/
 ```
-![Detection Results](datasets/robustness_show_00.png)
 - Evaluate on the dataset
 ```bash
 python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
@@ -46,6 +45,7 @@ python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 
 ## 🔧 Robustness Evaluation
 We also provide robustness subsets of RUOD(Gaussian Noise and Motion Blur at 5 severity levels),you can download them from [RUOD]( https://pan.baidu.com/s/165NIEGmyHIVeCy47WIF8LA?pwd=w35g )
 
+![Detection Results](datasets/robustness_show_00.png)
 1. Evaluate on Gaussian Noise
 ```bash
 python val.py --data datasets/ruod-gussian.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
