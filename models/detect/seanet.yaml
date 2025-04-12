@@ -1,0 +1,52 @@
+nc: 80  
+depth_multiple: 1.0  # model depth multiple
+width_multiple: 1.0  # layer channel multiple
+#activation: nn.LeakyReLU(0.1)
+#activation: nn.ReLU()
+
+anchors: 3
+
+backbone:
+  [
+   [-1, 1, Conv, [32, 3, 2]],  # 0
+   [-1, 1, MDAM, [64]],  # 1
+   [-1, 1, ELAN1, [64, 64, 32]],  # 2
+   [-1, 1, AConv, [128]],  # 3
+   [-1, 1, RepNCSPELAN4, [128, 128, 64, 3]],  # 4 80
+   [-1, 1, AConv, [192]],  # 5
+   [-1, 1, RepNCSPELAN4, [192, 192, 96, 3]],  # 6 40
+   [-1, 1, AConv, [256]],  # 7
+   [-1, 1, RepNCSPELAN4, [256, 256, 128, 3]],  # 8 20
+  ]
+
+head:
+  [
+   [-1, 1, SPPELAN, [256, 128]],  # 9 20
+
+   [-1, 1, Conv, [512, 1, 1]], # 10 20
+   [6, 1, Conv, [512, 3, 2]], 
+   [[-1, 10], 1, Concat, [1]],
+   [-1, 3, CEM, [512]], # 13
+
+
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+   [4, 1, Conv, [256,3,2]],    #15
+   [[14,-1, 6], 1, Concat, [1]],  # cat backbone P4 
+   [-1,3,CEM,[512]],  #17
+
+   [-1, 1, nn.Upsample, [None, 2, 'nearest']],
+   [[-1, 4], 1, Concat, [1]],  # cat backbone P3
+   [-1,3,CEM,[256]],  #20
+
+   [-1, 1, Conv, [256,3,2]],
+   [[-1, 17], 1, Concat, [1]],  # cat head P4
+   [-1, 3, CEM, [256]],  # 23 (P4/16-medium)
+
+   [17, 1, Conv, [256,3,2]],
+   [23, 1, Conv, [256,3,2]],
+   [[13, 24, -1], 1, Concat, [1]],  # cat head P5
+   [-1, 3, CEM, [256]],  # 27 (P5/32-large)
+
+   # detect
+   [[20, 23, 27], 1, DDetect, [nc]],  # DDetect(P3, P4, P5)
+  ]
