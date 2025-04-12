@@ -1,7 +1,9 @@
 # SEANet
 Underwater object detection is significantly hindered by low-contrast visual conditions and extreme scale variation among marine organisms. To address these challenges, we propose SEANet, a single-stage detection framework specifically tailored for underwater environments. First, the Multi-Scale Detail Amplification Module (MDAM) strengthens feature extraction by expanding receptive fields to capture fine-grained cues in complex backgrounds. Besides, we design the Semantic Enhancement Feature Pyramid (SE-FPN), which incorporates a Fore-Background Contrast Attention (FBC) mechanism. SE-FPN assists in enhancing multi-scale feature integration and moderately improves contrast between targets and their surroundings, helping the network focus more effectively on low-contrast objects in underwater scenes. Experiments on underwater datasets demonstrate that SEANet achieves competitive performance, with the highest AP recorded at 67.0% on the RUOD dataset.
 
-![Detection Results](datasets/show.jpg)
+<p align="center">
+  <img src="datasets/show.jpg" width="600"/>
+</p>
 
 ## 🚀 Installation
 
@@ -21,7 +23,7 @@ pip install -r requirements.txt
 ```
 ## 📂 Data Preparation
 Download underwater object detection datasets such as [RUOD](https://pan.baidu.com/s/165NIEGmyHIVeCy47WIF8LA?pwd=w35g)
-It is recommended to extract the datasets outside the project directory. The suggested folder structure is as follows:
+The suggested folder structure is as follows:
 ```bash
 data 
 ├── images 
@@ -38,7 +40,7 @@ data
 ```bash
 runs/train/final/
 ```
-- Evaluate on the dataset
+- Run evaluation:
 ```bash
 python val.py --data datasets/ruod.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
 ```
@@ -48,23 +50,28 @@ We also provide robustness subsets of RUOD(Gaussian Noise and Motion Blur at 5 s
 ![Detection Results](datasets/robustness_show_00.png)
 
 ```bash
-1. Evaluate on Gaussian Noise
+# Evaluate on Gaussian Noise
 python val.py --data datasets/ruod-gussian.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
-2. Evaluate on Motion Blur
+
+# Evaluate on Motion Blur
 python val.py --data datasets/ruod-motionblur.yaml --img 640 --batch 32 --conf 0.001 --iou 0.7 --device 0 --weights runs/train/final/weights_ruod/best.pt
+
 ```
 
 ## 🧪 Train
 ```bash
-nohup python -u train.py --workers 4 --batch 16 --data datasets/yourdataset.yaml --img 640 --cfg models/detect/seanet.yaml --weights '' --hyp hyp.scratch-high.yaml --epochs 300 --close-mosaic 10  &
+nohup python -u train.py --workers 4 --batch 16 --data datasets/yourdataset.yaml --img 640 \
+--cfg models/detect/seanet.yaml --weights '' --hyp hyp.scratch-high.yaml --epochs 300 --close-mosaic 10 &
+
 ```
 
 ## 📚 Citation
-If you find this project useful in your research, please consider citing the following preprint:
+If you find this project useful in your research, please cite:
 ```bash
 @misc{yang2025seanet,
-  title={Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
-  note={The Visual Computer},
-  year={2025}
+  title     = {Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
+  note      = {The Visual Computer (under review)},
+  year      = {2025},
+  howpublished = {\url{https://github.com/Nicoleyk/SEANet}}
 }
 ```
