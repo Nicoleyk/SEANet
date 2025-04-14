@@ -1,9 +1,29 @@
 # SEANet
-Underwater object detection is significantly hindered by low-contrast visual conditions and extreme scale variation among marine organisms. To address these challenges, we propose SEANet, a single-stage detection framework specifically tailored for underwater environments. First, the Multi-Scale Detail Amplification Module (MDAM) strengthens feature extraction by expanding receptive fields to capture fine-grained cues in complex backgrounds. Besides, we design the Semantic Enhancement Feature Pyramid (SE-FPN), which incorporates a Fore-Background Contrast Attention (FBC) mechanism. SE-FPN assists in enhancing multi-scale feature integration and moderately improves contrast between targets and their surroundings, helping the network focus more effectively on low-contrast objects in underwater scenes. Experiments on underwater datasets demonstrate that SEANet achieves competitive performance, with the highest AP recorded at 67.0% on the RUOD dataset.
+Underwater object detection is significantly hindered by low-contrast visual conditions and extreme scale variation among marine organisms. To address these challenges, we propose SEANet, a single-stage detection framework specifically tailored for underwater environments. First, the Multi-Scale Detail Amplification Module (MDAM) strengthens feature extraction by expanding receptive fields to capture fine-grained cues in complex backgrounds. Besides, we design the Semantic Enhancement Feature Pyramid (SE-FPN), which incorporates a Fore-Background Contrast Attention (FBC) mechanism. SE-FPN assists in enhancing multi-scale feature integration and moderately improves contrast between targets and their surroundings, helping the network focus more effectively on low-contrast objects in underwater scenes. Experiments on underwater datasets demonstrate that SEANet achieves competitive performance.
 
 <p align="center">
   <img src="datasets/show.jpg" width="600"/>
 </p>
+🧱 Project Structure and Modules
+🔧 File Structure
+```bash
+SEANet/
+├── models/             # All core model modules
+│   ├── detect/         # seanet.yaml
+│   ├── common.py       # Backbone components and blocks
+│   ├── GFPN/ # Custom modules like FBC, MDAM
+├── train.py            # Training pipeline
+├── val.py              # Evaluation script
+├── datasets/           # Dataset yaml files
+└── utils/              # Helper functions, logging, plotting
+```
+📌 Key Modules (paper vs. code naming)
+Paper Name	Code Implementation (File)
+MDAM (Multi-Scale Detail Amplification Module)	RF_D_gn in models/GFPN/RF_gn.py
+CEM (Contrast Enhancement Module)	CSPStageEM in models/GFPN/Enhancement_module.py
+FBC (Fore-Background Contrast)	FBSIE in models/GFPN/Enhancement_module.py
+SE-FPN	Implemented in models/detect/seanet.yaml as feature fusion hierarchy
+
 
 ## 🚀 Installation
 
