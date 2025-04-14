@@ -1,7 +1,10 @@
 # SEANet
 Underwater object detection is significantly hindered by low-contrast visual conditions and extreme scale variation among marine organisms. To address these challenges, we propose SEANet, a single-stage detection framework specifically tailored for underwater environments. First, the Multi-Scale Detail Amplification Module (MDAM) strengthens feature extraction by expanding receptive fields to capture fine-grained cues in complex backgrounds. Besides, we design the Semantic Enhancement Feature Pyramid (SE-FPN), which incorporates a Fore-Background Contrast Attention (FBC) mechanism. SE-FPN assists in enhancing multi-scale feature integration and moderately improves contrast between targets and their surroundings, helping the network focus more effectively on low-contrast objects in underwater scenes. Experiments on underwater datasets demonstrate that SEANet achieves competitive performance.
+<p align="center">
+  <img src="datasets/show.jpg" width="600"/>
+</p>
 
-## 📚 Citation
+## Citation
 If you find this project useful in your research, please cite:
 ```bash
 @misc{yang2025seanet,
@@ -11,10 +14,6 @@ If you find this project useful in your research, please cite:
   howpublished = {\url{https://github.com/Nicoleyk/SEANet}}
 }
 ```
-<p align="center">
-  <img src="datasets/show.jpg" width="600"/>
-</p>
-
 🧱 Project Structure and Modules
 
 ```bash
