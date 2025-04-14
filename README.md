@@ -6,7 +6,6 @@ Underwater object detection is significantly hindered by low-contrast visual con
 </p>
 
 🧱 Project Structure and Modules
-🔧 File Structure
 
 ```bash
 SEANet/
@@ -21,12 +20,13 @@ SEANet/
 ```
 
 📌 Key Modules (paper vs. code naming)
+```bash
 Paper Name	Code Implementation (File)
 MDAM (Multi-Scale Detail Amplification Module)	RF_D_gn in models/GFPN/RF_gn.py
 CEM (Contrast Enhancement Module)	CSPStageEM in models/GFPN/Enhancement_module.py
 FBC (Fore-Background Contrast)	FBSIE in models/GFPN/Enhancement_module.py
 SE-FPN	Implemented in models/detect/seanet.yaml as feature fusion hierarchy
-
+```
 
 ## 🚀 Installation
 
