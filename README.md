@@ -4,8 +4,10 @@ Underwater object detection is significantly hindered by low-contrast visual con
 <p align="center">
   <img src="datasets/show.jpg" width="600"/>
 </p>
+
 🧱 Project Structure and Modules
 🔧 File Structure
+
 ```bash
 SEANet/
 ├── models/             # All core model modules
@@ -17,6 +19,7 @@ SEANet/
 ├── datasets/           # Dataset yaml files
 └── utils/              # Helper functions, logging, plotting
 ```
+
 📌 Key Modules (paper vs. code naming)
 Paper Name	Code Implementation (File)
 MDAM (Multi-Scale Detail Amplification Module)	RF_D_gn in models/GFPN/RF_gn.py
