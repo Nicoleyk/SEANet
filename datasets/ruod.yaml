@@ -1,4 +1,4 @@
-train: /mnt/yk/dataset/RUOD/labels/train.txt
+train: /mnt/yk/dataset/RUOD/labels/train.txt  (put your own path here)
 val: /mnt/yk/dataset/RUOD/labels/val.txt
 test: /mnt/yk/dataset/RUOD/labels/val.txt
 nc: 10
