@@ -28,6 +28,17 @@ FBC (Fore-Background Contrast)	FBSIE in models/GFPN/Enhancement_module.py
 SE-FPN	Implemented in models/detect/seanet.yaml as feature fusion hierarchy
 ```
 
+## 📚 Citation
+If you find this project useful in your research, please cite:
+```bash
+@misc{yang2025seanet,
+  title     = {Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
+  note      = {The Visual Computer (under review)},
+  year      = {2025},
+  howpublished = {\url{https://github.com/Nicoleyk/SEANet}}
+}
+```
+
 ## 🚀 Installation
 
 - Clone this repository
@@ -87,15 +98,4 @@ python val.py --data datasets/ruod-motionblur.yaml --img 640 --batch 32 --conf 0
 nohup python -u train.py --workers 4 --batch 16 --data datasets/yourdataset.yaml --img 640 \
 --cfg models/detect/seanet.yaml --weights '' --hyp hyp.scratch-high.yaml --epochs 300 --close-mosaic 10 &
 
-```
-
-## 📚 Citation
-If you find this project useful in your research, please cite:
-```bash
-@misc{yang2025seanet,
-  title     = {Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
-  note      = {The Visual Computer (under review)},
-  year      = {2025},
-  howpublished = {\url{https://github.com/Nicoleyk/SEANet}}
-}
 ```
