@@ -7,12 +7,15 @@ Underwater object detection is significantly hindered by low-contrast visual con
 ## Citation
 If you find this project useful in your research, please cite:
 ```bash
-@misc{yang2025seanet,
+@article{yang2025seanet,
+  author    = {Yang, K. and Wang, X. and Wang, W. and Yuan, X. and Xu, X.},
   title     = {Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
-  note      = {The Visual Computer (under review)},
+  journal   = {The Visual Computer},
   year      = {2025},
-  howpublished = {\url{https://github.com/Nicoleyk/SEANet}}
+  note      = {under review},
+  url       = {https://github.com/Nicoleyk/SEANet}
 }
+Yang, K., Wang, X., Wang, W., Yuan, X., Xu, X.: Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale. The Visual Computer (under review).
 ```
 🧱 Project Structure and Modules
 
