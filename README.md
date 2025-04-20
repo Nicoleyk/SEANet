@@ -4,19 +4,6 @@ Underwater object detection is significantly hindered by low-contrast visual con
   <img src="datasets/show.jpg" width="600"/>
 </p>
 
-## Citation
-If you find this project useful in your research, please cite:
-```bash
-@article{yang2025seanet,
-  author    = {Yang, K. and Wang, X. and Wang, W. and Yuan, X. and Xu, X.},
-  title     = {Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale},
-  journal   = {The Visual Computer},
-  year      = {2025},
-  note      = {under review},
-  url       = {https://github.com/Nicoleyk/SEANet}
-}
-Yang, K., Wang, X., Wang, W., Yuan, X., Xu, X.: Advanced Semantic Amplification for Underwater Object Detection in Low-Contrast and Multi-Scale. The Visual Computer (under review).
-```
 🧱 Project Structure and Modules
 
 ```bash
@@ -29,15 +16,6 @@ SEANet/
 ├── val.py              # Evaluation script
 ├── datasets/           # Dataset yaml files
 └── utils/              # Helper functions, logging, plotting
-```
-
-📌 Key Modules (paper vs. code naming)
-```bash
-Paper Name	Code Implementation (File)
-MDAM (Multi-Scale Detail Amplification Module)	RF_D_gn in models/GFPN/RF_gn.py
-CEM (Contrast Enhancement Module)	CSPStageEM in models/GFPN/Enhancement_module.py
-FBC (Fore-Background Contrast)	FBSIE in models/GFPN/Enhancement_module.py
-SE-FPN	Implemented in models/detect/seanet.yaml as feature fusion hierarchy
 ```
 
 ## 🚀 Installation
@@ -99,4 +77,18 @@ python val.py --data datasets/ruod-motionblur.yaml --img 640 --batch 32 --conf 0
 nohup python -u train.py --workers 4 --batch 16 --data datasets/yourdataset.yaml --img 640 \
 --cfg models/detect/seanet.yaml --weights '' --hyp hyp.scratch-high.yaml --epochs 300 --close-mosaic 10 &
 
+```
+
+## Citation
+If you find this project useful in your research, please cite:
+```bash
+@article{yang2025seanet,
+  author    = {Yang, K. and Wang, X. and Wang, W. and Yuan, X. and Xu, X.},
+  title     = {SEANet: Semantic Enhancement and Amplification for Underwater Object Detection in Complex Visual Scenarios},
+  journal   = {Sensors},
+  year      = {2025},
+  note      = {under review},
+  url       = {https://github.com/Nicoleyk/SEANet}
+}
+Yang, K., Wang, X., Wang, W., Yuan, X., Xu, X.: SEANet: Semantic Enhancement and Amplification for Underwater Object Detection in Complex Visual Scenarios. Sensors (under review).
 ```
